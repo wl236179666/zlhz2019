@@ -17,10 +17,10 @@ class Articles extends Base
     // 文章列表
     public function index()
     {
+        //搜索条件
         if(request()->isAjax()){
 
             $param = input('param.');
-
             $limit = $param['pageSize'];
             $offset = ($param['pageNumber'] - 1) * $limit;
 
@@ -51,8 +51,7 @@ class Articles extends Base
     {
         if(request()->isPost()){
             $param = input('post.');
-
-            unset($param['file']);
+            unset($param['file']); //删除元素
             $param['add_time'] = date('Y-m-d H:i:s');
 
             $article = new ArticleModel();
@@ -64,6 +63,7 @@ class Articles extends Base
         return $this->fetch();
     }
 
+    //修改文章
     public function articleEdit()
     {
         $article = new ArticleModel();
