@@ -34,7 +34,6 @@ class Base extends Controller
         // 检测权限
         $control = lcfirst(request()->controller());
         $action = lcfirst(request()->action());
-
         if(empty(authCheck($control . '/' . $action))){
             if(request()->isAjax()){
                 return msg(403, '', '您没有权限');
@@ -53,15 +52,15 @@ class Base extends Controller
 
     private function cacheCheck()
     {
-        $action = cache(session('role_id'));
+         // $action = cache(session('role_id'));
 
-        if(is_null($action) || empty($action)){
+         // if(is_null($action) || empty($action)){
 
             // 获取该管理员的角色信息
             $roleModel = new RoleModel();
             $info = $roleModel->getRoleInfo(session('role_id'));
             cache(session('role_id'), $info['action']);
-        }
+        //}
     }
 
     protected function removRoleCache()

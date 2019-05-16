@@ -43,7 +43,7 @@ class UserModel extends Model
      * 插入管理员信息
      * @param $param
      */
-    public function insertUser($param)
+    public function insertUser($param,$url = 'user/index')
     {
         try{
 
@@ -53,7 +53,7 @@ class UserModel extends Model
                 return msg(-1, '', $this->getError());
             }else{
 
-                return msg(1, url('user/index'), '添加用户成功');
+                return msg(1, url("{$url}"), '添加用户成功');
             }
         }catch(PDOException $e){
 
@@ -65,7 +65,7 @@ class UserModel extends Model
      * 编辑管理员信息
      * @param $param
      */
-    public function editUser($param)
+    public function editUser($param,$url = 'user/index')
     {
         try{
 
@@ -76,7 +76,7 @@ class UserModel extends Model
                 return msg(-1, '', $this->getError());
             }else{
 
-                return msg(1, url('user/index'), '编辑用户成功');
+                return msg(1, url("{$url}"), '编辑用户成功');
             }
         }catch(PDOException $e){
             return msg(-2, '', $e->getMessage());

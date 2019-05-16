@@ -156,6 +156,7 @@ function authCheck($rule)
         return true;
     }
 
+
     if(in_array($rule, cache(session('role_id')))){
         return true;
     }
