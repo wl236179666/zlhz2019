@@ -38,6 +38,8 @@ return [
         'expire' => 3600,
     ],
 
+    'exception_handle'       => 'app\lib\exception\ExceptionHandler', //错误处理类
+
     //加密串
     'salt' => 'wZPb~yxvA!ir38&Z',
     //备份数据地址
