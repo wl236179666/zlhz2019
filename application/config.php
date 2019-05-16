@@ -13,6 +13,7 @@
 return [
     // 是否开启路由
     'url_route_on' => true,
+    'url_route_must'=>  false,
     'trace' => [
         'type' => 'html', // 支持 socket trace file
     ],
